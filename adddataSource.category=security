@@ -1,0 +1,9 @@
+function processEvent(event)
+  local ok, err = pcall(function()
+    event["dataSource.category"] = "security"
+  end)
+  if not ok then
+    event["lua_error"] = err
+  end
+  return event
+end
